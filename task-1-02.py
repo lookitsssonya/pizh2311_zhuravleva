@@ -15,7 +15,7 @@ class BeeElephant(Animal):
             self.__bee_part = bee_part
             self.__elephant_part = elephant_part
         else:
-            raise ValueError("×àñòè äîëæíû áûòü â ïðåäåëàõ îò 0 äî 100.")
+            raise ValueError("Ð§Ð°ÑÑ‚Ð¸ Ð´Ð¾Ð»Ð¶Ð½Ñ‹ Ð±Ñ‹Ñ‚ÑŒ Ð² Ð¿Ñ€ÐµÐ´ÐµÐ»Ð°Ñ… Ð¾Ñ‚ 0 Ð´Ð¾ 100.")
 
     def fly(self):
         return self.__bee_part >= self.__elephant_part
@@ -32,15 +32,15 @@ class BeeElephant(Animal):
                 self.__elephant_part -= value
                 self.__bee_part += value
             else:
-                raise ValueError("Çíà÷åíèå âûõîäèò çà ïðåäåëû.")
+                raise ValueError("Ð—Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð²Ñ‹Ñ…Ð¾Ð´Ð¸Ñ‚ Ð·Ð° Ð¿Ñ€ÐµÐ´ÐµÐ»Ñ‹.")
         elif meal == "grass":
             if self.__bee_part - value >= 0 and self.__elephant_part + value <= 100:
                 self.__bee_part -= value
                 self.__elephant_part += value
             else:
-                raise ValueError("Çíà÷åíèå âûõîäèò çà ïðåäåëû.")
+                raise ValueError("Ð—Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð²Ñ‹Ñ…Ð¾Ð´Ð¸Ñ‚ Ð·Ð° Ð¿Ñ€ÐµÐ´ÐµÐ»Ñ‹.")
         else:
-            raise ValueError("Èñïîëüçóéòå 'nectar' èëè 'grass'.")
+            raise ValueError("Ð˜ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐ¹Ñ‚Ðµ 'nectar' Ð¸Ð»Ð¸ 'grass'.")
 
     def get_parts(self):
         return [self.__bee_part, self.__elephant_part]
