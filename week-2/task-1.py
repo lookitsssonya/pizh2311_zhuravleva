@@ -10,7 +10,7 @@ class Animal(ABC):
 
         :param part: Часть животного (целое число от 0 до 100).
         """
-        self.part = part
+        self.__part = part
 
     @abstractmethod
     def make_sound(self) -> str:
@@ -27,7 +27,7 @@ class Animal(ABC):
 
         :return: Целое число, представляющее часть животного.
         """
-        return self.part
+        return self.__part
 
 
 class Bee(Animal):
@@ -67,8 +67,8 @@ class BeeElephant:
         :param bee_part: Часть пчелы (целое число от 0 до 100).
         :param elephant_part: Часть слона (целое число от 0 до 100).
         """
-        self.bee = Bee(bee_part)
-        self.elephant = Elephant(elephant_part)
+        self.__bee = Bee(bee_part)
+        self.__elephant = Elephant(elephant_part)
 
     def fly(self) -> bool:
         """
@@ -76,7 +76,7 @@ class BeeElephant:
 
         :return: True, если часть пчелы не меньше части слона, иначе False.
         """
-        return self.bee.get_part() >= self.elephant.get_part()
+        return self.__bee.get_part() >= self.__elephant.get_part()
 
     def trumpet(self) -> str:
         """
@@ -84,10 +84,10 @@ class BeeElephant:
 
         :return: "tu-tu-doo-doo!", если часть слона не меньше части пчелы, иначе "wzzzzz".
         """
-        if self.elephant.get_part() >= self.bee.get_part():
-            return self.elephant.make_sound()
+        if self.__elephant.get_part() >= self.__bee.get_part():
+            return self.__elephant.make_sound()
         else:
-            return self.bee.make_sound()
+            return self.__bee.make_sound()
 
     def eat(self, meal: str, value: int) -> None:
         """
@@ -97,11 +97,11 @@ class BeeElephant:
         :param value: Количество съеденного (целое число).
         """
         if meal == "nectar":
-            self.elephant.part = max(0, min(100, self.elephant.part - value))
-            self.bee.part = max(0, min(100, self.bee.part + value))
+            self.__elephant.part = max(0, min(100, self.__elephant.part - value))
+            self.__bee.part = max(0, min(100, self.__bee.part + value))
         elif meal == "grass":
-            self.bee.part = max(0, min(100, self.bee.part - value))
-            self.elephant.part = max(0, min(100, self.elephant.part + value))
+            self.__bee.part = max(0, min(100, self.__bee.part - value))
+            self.__elephant.part = max(0, min(100, self.__elephant.part + value))
 
     def get_parts(self) -> list[int]:
         """
@@ -109,7 +109,7 @@ class BeeElephant:
 
         :return: Список из двух целых чисел: [часть пчелы, часть слона].
         """
-        return [self.bee.get_part(), self.elephant.get_part()]
+        return [self.__bee.get_part(), self.__elephant.get_part()]
 
     def __call__(self) -> str:
         """
@@ -117,7 +117,7 @@ class BeeElephant:
 
         :return: Строка в формате "Bee part: X, Elephant part: Y".
         """
-        return f"Bee part: {self.bee.get_part()}, Elephant part: {self.elephant.get_part()}"
+        return f"Bee part: {self.__bee.get_part()}, Elephant part: {self.__elephant.get_part()}"
 
     def __eq__(self, other: 'BeeElephant') -> bool:
         """
@@ -126,8 +126,8 @@ class BeeElephant:
         :param other: Другой объект BeeElephant.
         :return: True, если части пчелы и слона равны, иначе False.
         """
-        return (self.bee.get_part() == other.bee.get_part() and
-                self.elephant.get_part() == other.elephant.get_part())
+        return (self.__bee.get_part() == other.__bee.get_part() and
+                self.__elephant.get_part() == other.__elephant.get_part())
 
 
 # Пример использования
