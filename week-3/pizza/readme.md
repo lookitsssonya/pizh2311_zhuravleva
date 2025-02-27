@@ -45,7 +45,7 @@ if __name__ == "__main__":
 import time
 
 class Order:
-    """Класс Заказ содержит информацию о заказе."""
+    """Класс Order содержит информацию о заказе."""
 
     order_counter = 0
 
@@ -124,7 +124,7 @@ class Pizza:
 
 
 class Peperoni(Pizza):
-    """Класс ПиццаПепперони дополняет класс Пицца."""
+    """Класс Peperoni дополняет класс Pizza."""
 
     def __init__(self):
         super().__init__()
@@ -135,7 +135,7 @@ class Peperoni(Pizza):
 
 
 class Barbecue(Pizza):
-    """Класс ПиццаБарбекю дополняет класс Пицца."""
+    """Класс Barbecue дополняет класс Pizza."""
 
     def __init__(self):
         super().__init__()
@@ -146,7 +146,7 @@ class Barbecue(Pizza):
 
 
 class Seafood(Pizza):
-    """Класс ПиццаДарыМоря дополняет класс Пицца."""
+    """Класс Seafood дополняет класс Pizza."""
 
     def __init__(self):
         super().__init__()
@@ -162,7 +162,7 @@ from order import Order
 from pizza import Peperoni, Barbecue, Seafood
 
 class Terminal:
-    """Класс Терминал обеспечивает взаимодействие с клиентом."""
+    """Класс Terminal обеспечивает взаимодействие с клиентом."""
 
     COMPANY = "Пиццерия #1"
     COMMAND_CANCELL_ORDER = -1
