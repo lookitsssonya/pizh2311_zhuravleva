@@ -258,3 +258,6 @@ class Roman:
 Преобразование без создания объекта:   
 2016 = MMXVI   
 MMXVI = 2016   
+
+**UML** <br>
+<img src="./uml/uml.png">
