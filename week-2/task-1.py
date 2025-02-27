@@ -10,7 +10,7 @@ class Animal(ABC):
 
         :param part: Часть животного (целое число от 0 до 100).
         """
-        self.__part = part
+        self.__part = part  # Приватный атрибут
 
     @abstractmethod
     def make_sound(self) -> str:
@@ -28,6 +28,17 @@ class Animal(ABC):
         :return: Целое число, представляющее часть животного.
         """
         return self.__part
+
+    def set_part(self, value: int) -> None:
+        """
+        Устанавливает значение части животного.
+
+        :param value: Новое значение части (целое число от 0 до 100).
+        """
+        if 0 <= value <= 100:
+            self.__part = value
+        else:
+            raise ValueError("Часть животного должна быть в диапазоне от 0 до 100")
 
 
 class Bee(Animal):
@@ -67,8 +78,8 @@ class BeeElephant:
         :param bee_part: Часть пчелы (целое число от 0 до 100).
         :param elephant_part: Часть слона (целое число от 0 до 100).
         """
-        self.__bee = Bee(bee_part)
-        self.__elephant = Elephant(elephant_part)
+        self.__bee = Bee(bee_part)  # Приватный атрибут
+        self.__elephant = Elephant(elephant_part)  # Приватный атрибут
 
     def fly(self) -> bool:
         """
@@ -97,11 +108,11 @@ class BeeElephant:
         :param value: Количество съеденного (целое число).
         """
         if meal == "nectar":
-            self.__elephant.part = max(0, min(100, self.__elephant.part - value))
-            self.__bee.part = max(0, min(100, self.__bee.part + value))
+            self.__elephant.set_part(max(0, min(100, self.__elephant.get_part() - value)))
+            self.__bee.set_part(max(0, min(100, self.__bee.get_part() + value)))
         elif meal == "grass":
-            self.__bee.part = max(0, min(100, self.__bee.part - value))
-            self.__elephant.part = max(0, min(100, self.__elephant.part + value))
+            self.__bee.set_part(max(0, min(100, self.__bee.get_part() - value)))
+            self.__elephant.set_part(max(0, min(100, self.__elephant.get_part() + value)))
 
     def get_parts(self) -> list[int]:
         """
