@@ -2,7 +2,7 @@ from order import Order
 from pizza import Peperoni, Barbecue, Seafood
 
 class Terminal:
-    """Класс Терминал обеспечивает взаимодействие с клиентом."""
+    """Класс Terminal обеспечивает взаимодействие с клиентом."""
 
     COMPANY = "Пиццерия #1"
     COMMAND_CANCELL_ORDER = -1
