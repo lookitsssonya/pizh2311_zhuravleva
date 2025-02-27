@@ -10,7 +10,7 @@ class Animal(ABC):
 
         :param part: Часть животного (целое число от 0 до 100).
         """
-        self.__part = part  # Приватный атрибут
+        self.__part = part  
 
     @abstractmethod
     def make_sound(self) -> str:
@@ -78,8 +78,8 @@ class BeeElephant:
         :param bee_part: Часть пчелы (целое число от 0 до 100).
         :param elephant_part: Часть слона (целое число от 0 до 100).
         """
-        self.__bee = Bee(bee_part)  # Приватный атрибут
-        self.__elephant = Elephant(elephant_part)  # Приватный атрибут
+        self.__bee = Bee(bee_part)  
+        self.__elephant = Elephant(elephant_part)  
 
     def fly(self) -> bool:
         """
