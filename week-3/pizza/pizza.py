@@ -36,7 +36,7 @@ class Pizza:
 
 
 class Peperoni(Pizza):
-    """Класс ПиццаПепперони дополняет класс Пицца."""
+    """Класс Peperoni дополняет класс Pizza."""
 
     def __init__(self):
         super().__init__()
@@ -47,7 +47,7 @@ class Peperoni(Pizza):
 
 
 class Barbecue(Pizza):
-    """Класс ПиццаБарбекю дополняет класс Пицца."""
+    """Класс Barbecue дополняет класс Pizza."""
 
     def __init__(self):
         super().__init__()
@@ -58,7 +58,7 @@ class Barbecue(Pizza):
 
 
 class Seafood(Pizza):
-    """Класс ПиццаДарыМоря дополняет класс Пицца."""
+    """Класс Seafood дополняет класс Pizza."""
 
     def __init__(self):
         super().__init__()
