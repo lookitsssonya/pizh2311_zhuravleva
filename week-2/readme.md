@@ -182,3 +182,5 @@ False
 False  
 True   
 
+**UML** <br>
+<img src="./uml/uml.png">
