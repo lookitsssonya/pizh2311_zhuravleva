@@ -1,5 +1,5 @@
 import json
-from datetime import datetime, timedelta
+from datetime import date, timedelta
 
 class Date:
     """Класс для работы с датами.
