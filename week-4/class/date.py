@@ -62,7 +62,7 @@ class Date:
         Возвращает:
           - Date: новая дата после добавления дней.
         """
-        dt = datetime(self.year, self.month, self.day) + timedelta(days=days)
+        dt = datetime(self.year, self.month, self.day) + timedelta(days)
         return Date(dt.day, dt.month, dt.year)
 
     def __sub__(self, days: int) -> "Date":
