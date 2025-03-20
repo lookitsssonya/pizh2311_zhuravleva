@@ -19,11 +19,11 @@ class DateCollection:
 
     def __init__(self):
         """Инициализирует контейнер с пустым списком объектов Date."""
-        self._data = []  # Инициализация пустого списка для хранения объектов Date
-
+        self._data = []  
+        
     def __str__(self):
         """Возвращает строковое представление контейнера в виде списка дат."""
-        return "[" + ", ".join(str(date) for date in self._data) + "]"  # Преобразуем список дат в строку
+        return "[" + ", ".join(str(date) for date in self._data) + "]"  
 
     def __getitem__(self, index):
         """Позволяет индексировать и срезать контейнер.
@@ -34,15 +34,15 @@ class DateCollection:
         Возвращает:
           - Date или list[Date]: объект Date или список объектов Date.
         """
-        return self._data[index]  # Возвращаем элемент или срез списка
-
+        return self._data[index]  
+        
     def add(self, value: Date):
         """Добавляет объект Date в контейнер.
 
         Аргументы:
           - value (Date): объект Date для добавления.
         """
-        self._data.append(value)  # Добавляем объект Date в список
+        self._data.append(value)  
 
     def remove(self, index: int):
         """Удаляет объект Date из контейнера по индексу.
@@ -50,7 +50,7 @@ class DateCollection:
         Аргументы:
           - index (int): индекс элемента для удаления.
         """
-        del self._data[index]  # Удаляем элемент по индексу
+        del self._data[index]  
 
     def save(self, filename: str):
         """Сохраняет контейнер в JSON-файл.
@@ -59,7 +59,6 @@ class DateCollection:
           - filename (str): имя файла для сохранения.
         """
         with open(filename, 'w') as file:
-            # Преобразуем список объектов Date в список словарей и сохраняем в JSON
             json.dump([date.to_dict() for date in self._data], file)
 
     def load(self, filename: str):
@@ -69,6 +68,5 @@ class DateCollection:
           - filename (str): имя файла для загрузки.
         """
         with open(filename, 'r') as file:
-            # Загружаем список словарей из JSON и преобразуем их в объекты Date
             data = json.load(file)
             self._data = [Date.from_string(f"{d['day']}.{d['month']}.{d['year']}") for d in data]
