@@ -1,0 +1,2 @@
+This is the test file for lab number one. 
+The topic of the lab is the WordCount utility.
