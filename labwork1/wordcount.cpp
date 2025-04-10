@@ -49,8 +49,7 @@ int main(int argc, char* argv[]) {
         for (char c : line) {
             if (isspace(c)) {
                 in_word = false;
-            }
-            else if (!in_word) {
+            } else if (!in_word) {
                 words++;
                 in_word = true;
             }
