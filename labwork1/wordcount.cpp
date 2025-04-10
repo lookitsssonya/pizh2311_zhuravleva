@@ -3,7 +3,7 @@
 #include <string>
 
 int main(int argc, char* argv[]) {
-    
+
     if (argc < 2) {
         std::cout << "Usage: WordCount.exe [options] filename1 [filename2 ...]\n";
         return 1;
@@ -38,6 +38,7 @@ int main(int argc, char* argv[]) {
     int words = 0;
     int bytes = 0;
     int chars = 0;
+
     std::string line;
 
     while (getline(file, line)) {
