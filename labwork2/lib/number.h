@@ -4,7 +4,7 @@
 #include <array>
 
 struct uint2022_t {
-    static const size_t kDigits = 64; // Достаточно для хранения 2022 бит (68 * 32 = 2176 бит)
+    static const size_t kDigits = 64; 
     std::array<uint32_t, kDigits> parts;
 
     uint2022_t() {
