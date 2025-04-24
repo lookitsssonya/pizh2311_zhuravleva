@@ -24,7 +24,6 @@ uint2022_t from_string(const char* buff) {
     }
 
     for (size_t i = 0; i < str.size(); ++i) {
-        // Умножаем на 10
         uint32_t carry = 0;
         for (size_t j = 0; j < result.kDigits; ++j) {
             uint64_t value = static_cast<uint64_t>(result.parts[j]) * 10 + carry;
@@ -36,7 +35,6 @@ uint2022_t from_string(const char* buff) {
             throw std::overflow_error("Number too large for uint2022_t");
         }
 
-        // Добавляем текущую цифру
         uint32_t digit = str[i] - '0';
         carry = digit;
         for (size_t j = 0; j < result.kDigits && carry != 0; ++j) {
@@ -115,7 +113,6 @@ uint2022_t operator/(const uint2022_t& lhs, const uint2022_t& rhs) {
     uint2022_t divisor = rhs;
 
     for (int i = lhs.kDigits * 32 - 1; i >= 0; --i) {
-        // Сдвигаем remainder влево на 1 бит
         uint32_t carry = 0;
         for (int j = 0; j < remainder.kDigits; ++j) {
             uint32_t new_carry = remainder.parts[j] >> 31;
@@ -123,12 +120,10 @@ uint2022_t operator/(const uint2022_t& lhs, const uint2022_t& rhs) {
             carry = new_carry;
         }
 
-        // Устанавливаем младший бит remainder
         if ((lhs.parts[i / 32] >> (i % 32)) & 1) {
             remainder.parts[0] |= 1;
         }
 
-        // Проверяем remainder >= divisor без оператора >=
         bool can_subtract = true;
         for (int j = divisor.kDigits - 1; j >= 0; --j) {
             if (remainder.parts[j] > divisor.parts[j]) {
