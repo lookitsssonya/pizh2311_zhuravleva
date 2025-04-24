@@ -4,7 +4,7 @@
 #include <array>
 
 struct uint2022_t {
-    static const size_t kDigits = 64; 
+    static const size_t kDigits = 68; 
     std::array<uint32_t, kDigits> parts;
 
     uint2022_t() {
