@@ -11,18 +11,17 @@ namespace ArgumentParser {
             std::string long_name;
             char short_name;
             std::string description;
-            std::string* value_str; // Указатель на внешнюю строковую переменную
-            std::vector<int>* value_int; // Указатель на внешний вектор целых чисел
-            bool* value_bool; // Указатель на внешнюю булеву переменную
+            std::string* value_str; 
+            std::vector<int>* value_int; 
+            bool* value_bool; 
             bool is_set;
             bool is_flag;
-            bool is_positional; // Показывает, является ли аргумент позиционным
-            int min_values; // Минимальное количество значений для аргумента
-            std::string default_value_str; // Значение по умолчанию для строкового аргумента
-            bool default_value_bool; // Для флагов
+            bool is_positional; 
+            int min_values; 
+            std::string default_value_str; 
+            bool default_value_bool; 
             bool is_help;
 
-            // Конструктор по умолчанию для инициализации указателей как nullptr
             Argument() : value_str(nullptr),
                 value_int(nullptr),
                 value_bool(nullptr),
@@ -67,25 +66,19 @@ namespace ArgumentParser {
         ArgParser& AddFlag(char short_name_second, const std::string& long_name, const std::string& description);
         ArgParser& AddFlag(const std::string long_name_third, const std::string& long_name_);
 
-        //Парсинг аргументов командной строки
         bool Parse(const std::vector<std::string>& args);
 
-        // Установка значения по умолчанию для аргумента
         ArgParser& Default(const char* default_value);
         ArgParser& Default(bool default_flag);
 
-        // Указание, что аргумент может принимать несколько значений
         ArgParser& MultiValue(size_t min_values = 1);
 
-        // Установка аргумента как позиционного
         ArgParser& Positional();
 
-        // Сохранение значения аргумента во внешней переменной
         ArgParser& StoreValue(std::string& value);
         ArgParser& StoreValues(std::vector<int>& values);
         ArgParser& StoreValue(bool& flag);
 
-        // Получение значений аргументов
         std::string GetStringValue(const std::string& arg_name, const std::string& default_value = "") const;
         int GetIntValue(const std::string& arg_name, int default_value = 0) const;
         bool GetFlag(const std::string& arg_name) const;
